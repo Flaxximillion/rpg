@@ -1,0 +1,129 @@
+@font-face {
+    font-family: "Hot Chili";
+    src: url(../HotChili.ttf);
+}
+
+body {
+    background-image: url("../images/NA_Pattern.jpg");
+    background-repeat: repeat;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body>*{
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            2px 2px 0 #000;
+    display: flex;
+    justify-content: center;
+}
+.attack {
+    display: inline-flex;
+    box-sizing: content-box;
+    align-items: center;
+    width: 17em;
+    height: 6em;
+    cursor: pointer;
+    padding: 5px 15px;
+    border: 2px solid rgba(173,32,3,0.55);
+    border-radius: 10px;
+    font-family: "Hot Chili", sans-serif;
+    word-spacing: 0.3em;
+    color: rgba(255,255,255,0.9);
+    background: -webkit-linear-gradient(-90deg, #c96652 0, #c96652 1%, #c42505 41%, #c42505 60%, #c96652 100%);
+    background: linear-gradient(180deg, #c96652 0, #c96652 1%, #c42505 41%, #c42505 60%, #c96652 100%);
+    background-position: 50% 50%;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-size: auto auto;
+}
+#stats{
+    background-image: url("../images/illo22.png");
+    padding: 10px;
+    width: 60%;
+    flex-direction: column;
+}
+
+#eventText, #statHolder>* {
+    font-family: "Hot Chili", sans-serif;
+    font-size: 0.9em;
+    word-spacing: 0.3em;
+    margin: 20px;
+}
+
+#eventText, #statHolder{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 55px 0px rgba(0,0,0,0.75);
+}
+
+#playerStats{
+    margin-left: auto;
+}
+
+#statHolder>*{
+    text-align: left;
+}
+
+#attackButtons, #restart {
+    height: 10%;
+    margin: 20px;
+    flex: 0 1 100%;
+    visibility: hidden;
+    align-self: flex-end;
+}
+
+.fancyButton {
+    display: inline-block;
+    box-sizing: content-box;
+    float: none;
+    z-index: auto;
+    width: auto;
+    height: auto;
+    position: static;
+    cursor: pointer;
+    margin: 0;
+    padding: 0 20px;
+    overflow: visible;
+    border: none;
+    border-radius: 20px;
+    font: normal normal bold 20px/40px "Hot Chili", Helvetica, sans-serif;
+    color: black;
+    text-overflow: clip;
+    background: rgb(221, 221, 221);
+    box-shadow: 0 1px 0 0 rgb(119,119,119) , 0 2px 0 0 rgb(119,119,119) , 0 3px 0 0 rgb(119,119,119) , 0 4px 0 0 rgb(119,119,119) , 0 5px 0 0 rgb(119,119,119) , 0 6px 0 0 rgb(119,119,119) , 0 0 5px 0 rgba(0,0,0,0.0980392) , 0 1px 3px 0 rgba(0,0,0,0.298039) , 0 3px 5px 0 rgba(0,0,0,0.2) , 0 5px 10px 0 rgba(0,0,0,0.247059) , 0 10px 10px 0 rgba(0,0,0,0.2) , 0 20px 20px 0 rgba(0,0,0,0.14902) ;
+    text-shadow: 0 1px 0 #FFFFFF ;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-transform: none;
+    transform: none;
+    -webkit-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+}
+
+#restart{
+    height: 10%;
+    margin: 20px;
+    flex: 0 1 100%;
+    align-self: flex-end;
+    visibility: hidden;
+}
+
+#enemyButtons {
+    flex: 0 1 100%;
+    height: 10%;
+    margin: 20px;
+}
+
+#enemyButtons>*, #attackButtons>*{
+    margin-left: 10px;
+}
