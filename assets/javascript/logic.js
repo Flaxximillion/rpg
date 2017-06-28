@@ -35,7 +35,7 @@ $(document).ready(function () {
 function init(){
     player = {
         name: "You",
-        ammo: 350,
+        ammo: 450,
         cats: 125,
     };
     enemies = 3;
@@ -43,10 +43,10 @@ function init(){
     setButtons.hideRestartAttackShowEnemy();
 
     $("#cats").text(player.cats);
-    $("#energy").text(player.cats);
+    $("#energy").text(player.ammo);
 
     gameText = $("#eventText");
-    $(gameText).text("Oh no! All the crazy cat ladies in the neighbor, including you, have all gone crazy and are fighting over cats! Muster up what energy your feeble, old body can and gather what cats you can!");
+    $(gameText).text("Oh no! All the crazy cat ladies in the neighborhood (including you!) have all gone crazy and are fighting over cats! Muster up what energy your feeble, old body can and gather what cats you can!");
     crazyCatLady1 = constructCatLady("Bertha", 100, 100, 1, [0, 2, 5]);
     crazyCatLady2 = constructCatLady("Gretchen", 150, 150, 2, [2, 3, 4]);
     crazyCatLady3 = constructCatLady("Dolores", 200, 200, 3, [1, 2, 3]);
@@ -67,7 +67,6 @@ function init(){
         currEnemy.ammo -= attack.ammo;
         player.cats -= attack.ammo;
         currEnemy.cats += attack.ammo;
-        console.log("fire button");
 
         if (player.cats <= 0) {
             player.cats = 0;
@@ -111,27 +110,13 @@ function init(){
     });
 
 
-    $(".crazyCatLady").unbind("click").bind("click", (function () {
+    $(".crazyCatLady").unbind("click").bind("click", (function(){
         currEnemy = $(this).data("object");
         setButtons.showAttacksHideEnemies();
         $("#enemyCats").text(currEnemy.cats);
         $("#enemyEnergy").text(currEnemy.ammo);
         $("#eventText").text("");
     }));
-
-    $(".attack").mouseenter(function(event) {
-        event.preventDefault();
-        let button = $(this);
-
-        let properties = {
-            width: button.width() * 1.02,
-            height: button.height() * 1.02
-        };
-
-        button.pulse(properties, {duration: 500, pulses: -1});
-    }).mouseleave(function(){
-        $(this).pulse("destroy");
-    });
 }
 
 const Attacks = {
@@ -211,7 +196,6 @@ function playerWin(winCondition) {
     setButtons.showEnemiesHideAttacks();
     $(currEnemy.button).remove();
     enemies--;
-    console.log(enemies);
     if(enemies === 0) {
         gameText.text("Congratulations! All the neighborhood cats are yours!");
         setButtons.showRestartHideAttackEnemy();
@@ -234,7 +218,7 @@ function playerLose(lossCondition) {
         gameText.text("Oh no! All your cats are gone!");
         setButtons.showRestartHideAttackEnemy();
     } else if(lossCondition === 2){
-        gameText.text("Oh no! You've run out of energy to hoard all the cats!");
+        gameText.text("Oh no! You've run out of energy and all your cats got stolen!");
         setButtons.showRestartHideAttackEnemy();
     }
 }
